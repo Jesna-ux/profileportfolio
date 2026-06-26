@@ -1,162 +1,404 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jesna VJ - Profile</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f5f6fa;
-      color: #333;
-      scroll-behavior: smooth; /* Enables smooth scrolling */
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jesna VJ | Portfolio</title>
+
+    <style>
+        
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f1f1f1;
+    color:#333;
+    line-height:1.6;
+}
+
+
+
+header{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    padding:20px 10%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:white;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    z-index:1000;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#958dd5;
+}
+
+nav a{
+    text-decoration:none;
+    color:#444;
+    margin-left:30px;
+    font-weight:500;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#6c5ce7;
+}
+
+
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:120px 10% 60px;
+    background:linear-gradient(135deg,#eef2ff,#dbeafe);
+    gap:60px;
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    max-width:550px;
+    animation:slideLeft 1s ease;
+}
+
+.hero-text h3{
+    color:#6c5ce7;
+    margin-bottom:10px;
+    font-size:22px;
+}
+
+.hero-text h1{
+    font-size:58px;
+    margin-bottom:15px;
+    color:#222;
+}
+
+.hero-text h2{
+    color:#555;
+    margin-bottom:20px;
+    font-weight:500;
+}
+
+.hero-text p{
+    margin-bottom:35px;
+    color:#555;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:14px 35px;
+    background:#6c5ce7;
+    color:white;
+    border-radius:40px;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#5649d6;
+    transform:translateY(-5px);
+    box-shadow:0 10px 20px rgba(108,92,231,.3);
+}
+
+
+
+.hero-image{
+    animation:slideRight 1s ease;
+}
+
+.hero-image img{
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    object-fit:cover;
+    border:8px solid white;
+    box-shadow:0 15px 35px rgba(108,92,231,.25);
+    transition:.4s;
+}
+
+.hero-image img:hover{
+    transform:scale(1.05);
+}
+
+/* About */
+
+.about{
+    padding:100px 10%;
+    text-align:center;
+}
+
+.about h2{
+    font-size:38px;
+    color:#6c5ce7;
+    margin-bottom:40px;
+}
+
+.about-card{
+    max-width:900px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.about-card:hover{
+    transform:translateY(-8px);
+}
+
+.about-card p{
+    font-size:17px;
+    color:#555;
+    text-align:justify;
+}
+
+
+
+.contact{
+    padding:100px 10%;
+    background:#eef2ff;
+    text-align:center;
+}
+
+.contact h2{
+    color:#6c5ce7;
+    font-size:38px;
+    margin-bottom:40px;
+}
+
+.contact-box{
+    max-width:500px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.contact-box p{
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:5px;
+}
+
+.contact-box span{
+    color:#555;
+    font-size:16px;
+}
+
+
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+
+
+@keyframes slideLeft{
+
+    from{
+        opacity:0;
+        transform:translateX(-60px);
     }
 
-    /* Navbar */
-    nav {
-      background: #6c5ce7;
-      display: flex;
-      padding: 15px;
-      
-      justify-content: center;
-      gap: 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
+    to{
+        opacity:1;
+        transform:translateX(0);
     }
 
-    /* Hero Section */
-    .hero {
-      display: flex;
-      justify-content: center;
-      padding: 60px 20px;
-      align-items: center;
-      
-      background: #fff;
-      flex-wrap: wrap;
-    }
-    .hero-text {
-      max-width: 400px;
-      margin-right: 50px;
-    }
-    .hero-text h1 {
-      color: #2d3436;
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-    .hero-text h2 {
-      color: #6c5ce7;
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-    }
-    .hero-text p {
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-    .hero-text a button {
-      padding: 10px 20px;
-      background: #6c5ce7;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .hero-text a button:hover {
-      background: #6c5ce7;
+}
+
+@keyframes slideRight{
+
+    from{
+        opacity:0;
+        transform:translateX(60px);
     }
 
-    /* Profile Image */
-    .hero img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      object-fit: cover;
-      
-      border: 5px solid #6c5ce7;
+    to{
+        opacity:1;
+        transform:translateX(0);
     }
 
-    /* About Section */
-    .about {
-      padding: 60px 20px;
-      background: #f0f0f5;
-      text-align: center;
-    }
-    .about h2 {
-      color: #6c5ce7;
-      margin-bottom: 15px;
-    }
-    .about p {
-      max-width: 600px;
-      margin: auto;
-      line-height: 1.6;
-    }
+}
 
-    /* Contact Section */
-    .contact {
-      padding: 60px 20px;
-      background: #fff;
-      text-align: center;
-    }
-    .contact h2 {
-      color: #6c5ce7;
-      margin-bottom: 15px;
-    }
-    .contact p {
-      margin: 8px 0;
-    }
-  </style>
+
+
+@media(max-width:768px){
+
+header{
+    padding:15px 5%;
+    flex-direction:column;
+}
+
+nav{
+    margin-top:10px;
+}
+
+nav a{
+    margin:0 10px;
+}
+
+.hero{
+    text-align:center;
+    padding-top:160px;
+}
+
+.hero-text h1{
+    font-size:42px;
+}
+
+.hero-image img{
+    width:220px;
+    height:220px;
+}
+
+.about-card{
+    padding:25px;
+}
+
+}
+    </style>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
-  <!-- Navigation-->
-  <nav>
-    <a href="#">Home</a>
-    <a href="#about">About Me</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    <!-- Navigation -->
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="hero-text">
-      <h1>Hi, I'm Jesna VJ</h1>
-      <h2>Student | NNM24CS106</h2>
-      <p>A passionate learner who loves exploring new things in tech, creativity, and personal growth. Dedicated to learning and improving every day.</p>
-      
-     
-    </div>
-    
-    <img src="clgprf.png" alt="Jesna VJ">
-  </section>
+    <header>
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <h2>About Me</h2>
-    <p>
-      Hi, I'm Jesna VJ, and I am from Chikmagalur. I am currently pursuing my B.Tech in Computer Science and Engineering at Nitte University.
-      One of my proud achievements is being selected for the chess team that represented Nitte University. This experience  has not only sharpened my strategic thinking but also boosted my confidence.
-      My short-term goal is to get placed in a reputed company where I can apply my knowledge and skills effectively. In the long run, I aim to build a strong career in the field of computer science and contribute to meaningful projects that make a positive impact.
+        <div class="logo">Jesna VJ</div>
+
+        <nav>
+
+            <a href="#home">Home</a>
+
+            <a href="#about">About</a>
+
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+    </header>
 
 
-    </p>
-  </section>
+    <!-- Hero Section -->
 
-  <!-- Contact Section -->
-   <footer>
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <span>Email: jesnavj525@gmail.com</span>
-    <span>Phone: +91 96062 47231</span>
-   
-  </section>
-  </footer>
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <h3>Hello 👋</h3>
+
+            <h1>I'm Jesna VJ</h1>
+
+            <h2>Computer Science Student</h2>
+
+            <p>
+                Passionate about technology, problem-solving and continuously
+                learning new skills. I enjoy building projects and exploring
+                different areas of computer science.
+            </p>
+
+            <a href="#about" class="btn">
+                Learn More
+            </a>
+
+        </div>
+
+        <div class="hero-image">
+
+            <img src="clgprf.png" alt="Jesna">
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+
+    <section class="about" id="about">
+
+        <h2>About Me</h2>
+
+        <div class="about-card">
+
+            <p>
+
+                Hi, I'm <strong>Jesna VJ</strong> from Chikmagalur.
+
+                I am currently pursuing my B.Tech in Computer Science and Engineering
+                at Nitte University.
+
+                I had the opportunity to represent Nitte University in Chess,
+                which strengthened my strategic thinking, patience and confidence.
+
+                My short-term goal is to secure a position in a reputed company
+                where I can apply my technical skills and continue learning.
+
+                My long-term goal is to become a successful software engineer
+                and contribute to meaningful real-world projects.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact -->
+
+    <section class="contact" id="contact">
+
+        <h2>Contact Me</h2>
+
+        <div class="contact-box">
+
+            <p>📧 <strong>Email</strong></p>
+
+            <span>jesnavj525@gmail.com</span>
+
+            <br><br>
+
+            <p>📱 <strong>Phone</strong></p>
+
+            <span>+91 9606247231</span>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        <p>© 2025 Jesna VJ | Portfolio</p>
+
+    </footer>
 
 </body>
+
 </html>
